@@ -6,8 +6,7 @@
     <meta name="keywords" content="Riivo Maadla, Python Developer, Tech Enthusiast, Portfolio">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Riivo Maadla's Portfolio</title>
-    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
     <header>
@@ -28,8 +27,9 @@
     </header>
 
     <main>
+        <!-- About Section -->
         <section id="about" class="section">
-            <img src="/images/About_Me_Section.png" alt="About Me" class="about-me-image">
+            <img src="images/About_Me_Section.png" alt="About Me" class="about-me-image">
             <h2>About Me</h2>
             <p>Hello! I'm Riivo Maadla, a Python Developer and Tech Enthusiast. I specialize in building applications that solve real-world problems. I'm passionate about learning new technologies and creating software that improves lives.</p>
             <h3>My Skills</h3>
@@ -42,9 +42,11 @@
             </div>
         </section>
 
+        <!-- Projects Section -->
         <section id="projects" class="section">
             <h2>My Projects</h2>
             <div class="project-container">
+                <!-- Projects will be displayed here -->
                 <article class="project-item">
                     <img src="/images/Project_Thumbnail.png" alt="Project Thumbnail" class="project-thumbnail">
                     <div class="project-details">
@@ -53,25 +55,27 @@
                         <a href="project_link.html" class="btn">View Project</a>
                     </div>
                 </article>
-                <!-- Projects will be displayed here -->
-                <!-- ... -->
+                <!-- Repeat for other projects -->
             </div>
             <h2>Open Source Contributions</h2>
             <div class="open-source-container">
-                <article class="open-source-item"></article>
+                <article class="open-source-item">
                     <img src="/images/Open_Source_Contributions.png" alt="Open Source Contributions" class="open-source-image">
-                    <div class="open-source-details"></div>
-                    <h3>Open Source Project Title</h3>
-                    <p>Project description.</p>
+                    <div class="open-source-details">
+                        <h3>Open Source Project Title</h3>
+                        <p>Project description.</p>
                     </div>
                 </article>
                 <!-- Open source projects will be displayed here -->
                 <!-- ... -->
             </div>
         </section>
+
+        <!-- Blog Section -->
         <section id="blog" class="section">
             <h2>Blog</h2>
             <div class="blog-posts">
+                <!-- Repeat for other blog posts -->
                 <div class="blog-post">
                     <img src="/images/Blog_Post_Thumbnail.png" alt="Blog Post" class="blog-thumbnail">
                     <div class="blog-info">
@@ -80,9 +84,10 @@
                         <a href="blog_post_link.html" class="btn">Read More</a>
                     </div>
                 </div>
-                <!-- Repeat for other blog posts -->
             </div>
         </section>
+
+        <!-- Contact Section -->
         <section id="contact" class="section">
             <h2>Contact Me</h2>
             <form id="contact-form">
@@ -91,7 +96,6 @@
                 <textarea id="message" name="message" placeholder="Your Message" required></textarea>
                 <button type="submit" class="btn">Send Message</button>
             </form>
-
             <div class="social-links">
                 <a href="https://linkedin.com/in/yourprofile" target="_blank">LinkedIn</a>
                 <a href="https://github.com/yourusername" target="_blank">GitHub</a>
@@ -99,12 +103,10 @@
             </div>
         </section>
     </main>
-<footer>
-    <p>&copy; <span id="year"></span> Your Name</p>
-</footer>
+    <footer>
+        <p>&copy; <span id="year"></span> Riivo Maadla</p>
+    </footer>
 
-<script src="/js/script.js"></script>
+    <script src="js/script.js"></script>
 </body>
 </html>
-
-

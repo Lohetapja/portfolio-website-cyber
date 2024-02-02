@@ -1,21 +1,43 @@
 const express = require('express');
+const net = require('net');
 const path = require('path');
 
-// Create an instance of the express application
 const app = express();
 
-// Define the port number. You can run the server on a different port by setting the PORT environment variable
-const PORT = process.env.PORT || 3000;
+// Helper function to find an open port
+const findOpenPort = (port, callback) => {
+  const server = net.createServer();
 
-// Serve static files from the "public" directory
+  server.listen(port, () => {
+    server.once('close', () => {
+      callback(port);
+    });
+    server.close();
+  });
+
+  server.on('error', () => {
+    findOpenPort(port + 1, callback); // If current port in use, check the next one
+  });
+};
+
+// Serve static files from 'public' directory
 app.use(express.static(path.join(__dirname, 'public')));
 
-// Route for the home page
-app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, 'views', 'index.html'));
+// Define API endpoint for projects
+const projects = [
+  // ... Your projects data ...
+];
+
+app.get('/api/projects', (req, res) => {
+  res.json(projects);
 });
 
-// Start the server
-app.listen(PORT, () => {
-    console.log(`Server is running on port ${PORT}`);
-});
+// Function to start the server on an open port
+const startServer = (openPort) => {
+  app.listen(openPort, () => {
+    console.log(`Server listening on port ${openPort}`);
+  });
+};
+
+// Find an open port starting at 3000 and start the server
+findOpenPort(3000, startServer);
