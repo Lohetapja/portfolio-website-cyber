@@ -3,6 +3,24 @@ body, html {
     padding: 0;
     height: 100%;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: url('/images/Banner_Image.png') no-repeat center center fixed;
+    background-size: cover;
+}
+
+/* Additional styles to prevent repeated backgrounds on longer pages */
+body {
+    background-attachment: fixed; /* The background will be fixed with regard to the viewport */
+}
+
+/* You may want to add a solid color overlay to ensure text readability */
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(255, 255, 255, 0.6); /* White background with opacity */
+    z-index: -1; /* Place the overlay behind the content */
 }
 
 #navbar {
@@ -37,9 +55,9 @@ body, html {
 }
 
 .intro-banner {
-    background: url('/images/Banner_Image.png') no-repeat center center;
-    background-attachment: fixed; /* This makes the background fixed during scroll */
-    height: 100vh;
+    background: url('/images/Banner_Image.png') no-repeat center center fixed;
+    background-size: cover; /* Cover the entire viewport */
+    height: 100vh; /* Full height of the viewport */
     display: flex;
     flex-direction: column;
     justify-content: center;
