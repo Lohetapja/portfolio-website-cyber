@@ -133,6 +133,15 @@ body {
     margin-top: 20px;
 }
 
+.section-content-wrapper {
+    max-width: 1200px;
+    margin: auto;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent white */
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
 /* Use the same styles for open-source items and blog posts as project items */
 .open-source-item, .blog-post, .project-item {
     background-color: #1c1c1c;

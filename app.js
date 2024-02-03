@@ -4,6 +4,48 @@ const path = require('path');
 
 const app = express();
 
+const express = require('express');
+const bodyParser = require('body-parser');
+const nodemailer = require('nodemailer');
+
+
+app.use(bodyParser.urlencoded({ extended: true }));
+
+app.post('/contact', async (req, res) => {
+    const { name, email, message } = req.body;
+
+    let transporter = nodemailer.createTransport({
+        service: 'gmail', // Use your preferred SMTP service
+        auth: {
+            user: 'yourEmail@example.com',
+            pass: 'yourEmailPassword'
+        }
+    });
+
+    let mailOptions = {
+        from: email,
+        to: 'yourEmail@example.com',
+        subject: `New Contact Form Submission from ${name}`,
+        text: message
+    };
+
+    try {
+        await transporter.sendMail(mailOptions);
+        res.send('Email sent successfully');
+    } catch (error) {
+        console.error('Failed to send email', error);
+        res.send('Failed to send email');
+    }
+});
+
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+    console.log(`Server running on port ${PORT}`);
+});
+
+
+
+
 // Helper function to find an open port
 const findOpenPort = (port, callback) => {
   const server = net.createServer();
