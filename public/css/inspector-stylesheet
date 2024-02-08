@@ -150,35 +150,35 @@ body, html {
     background-color: #2ecc71;
 }
 
-#blog {
+#lumina {
     background-color: #181818;
     color: #ddd;
 }
 
-.blog-posts {
+.lumina-posts {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 20px;
 }
 
-.blog-post {
+.lumina-post {
     background-color: #252525;
     border-radius: 10px;
     overflow: hidden;
 }
 
-.blog-image {
+.lumina-image {
     width: 100%;
     height: auto;
     display: block;
 }
 
-.blog-info {
+.lumina-info {
     padding: 15px;
     text-align: center;
 }
 
-.blog-info h3 {
+.lumina-info h3 {
     color: #39ff14; /* Neon green */
 }
 

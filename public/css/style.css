@@ -142,8 +142,8 @@ body {
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-/* Use the same styles for open-source items and blog posts as project items */
-.open-source-item, .blog-post, .project-item {
+/* Use the same styles for open-source items and lumina posts as project items */
+.open-source-item, .lumina-post, .project-item {
     background-color: #1c1c1c;
     border: 1px solid #333;
     border-radius: 8px;
@@ -151,12 +151,12 @@ body {
     transition: transform 0.3s ease;
 }
 
-.open-source-item:hover, .blog-post:hover, .project-item:hover {
+.open-source-item:hover, .lumina-post:hover, .project-item:hover {
     transform: translateY(-5px);
 }
 
 /* Ensure the image paths are consistent */
-.about-me-image, .blog-thumbnail, .project-thumbnail, .open-source-image {
+.about-me-image, .lumina-thumbnail, .project-thumbnail, .open-source-image {
     width: auto; /* Maintain the aspect ratio */
     height: auto; /* Maintain the aspect ratio */
     max-width: 33.33%; /* Adjust the max-width as per your requirement */
@@ -164,7 +164,7 @@ body {
     margin: 0 auto; /* This will center the image */
 }
 
-/* Apply the same grid layout to open-source and blog sections */
+/* Apply the same grid layout to open-source and lumina sections */
 .section-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -249,35 +249,35 @@ body {
     background-color: #2ecc71;
 }
 
-#blog {
+#lumina {
     background-color: #181818;
     color: #ddd;
 }
 
-.blog-posts {
+.lumina-posts {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 20px;
 }
 
-.blog-post {
+.lumina-post {
     background-color: #252525;
     border-radius: 10px;
     overflow: hidden;
 }
 
-.blog-image {
+.lumina-image {
     width: 100%;
     height: auto;
     display: block;
 }
 
-.blog-info {
+.lumina-info {
     padding: 15px;
     text-align: center;
 }
 
-.blog-info h3 {
+.lumina-info h3 {
     color: #39ff14; /* Neon green */
 }
 
@@ -316,8 +316,8 @@ body {
     text-decoration: underline;
 }
 
-/* Resize the images for About, Blog, Projects, and Open Source Contributions */
-.about-me-image, .blog-thumbnail, .project-thumbnail, .open-source-image {
+/* Resize the images for About, lumina, Projects, and Open Source Contributions */
+.about-me-image, .lumina-thumbnail, .project-thumbnail, .open-source-image {
     width: auto; /* Maintain the aspect ratio */
     height: auto; /* Maintain the aspect ratio */
     max-width: 33.33%; /* Adjust the max-width as per your requirement */
