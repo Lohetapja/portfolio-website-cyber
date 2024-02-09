@@ -25,11 +25,38 @@
             <p>Placeholder content for this section...</p>
             <!-- More content goes here -->
         </section>
+        <section id="lumina" class="section">
+            <video id="luminaVideo" autoplay loop muted playsinline>
+                <source src="images/Lumina.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <h2>Lumina</h2>
+            <!-- Chat interface here -->
+            <div id="chat-interface">
+                <input type="text" id="user-input" placeholder="Type your message...">
+                <button id="send-btn">Send</button>
+                <div id="chat-messages"></div>
+            </div>
+        </section>
     </main>
     
     <footer>
         <p>&copy; <span id="year"></span> Riivo Maadla</p>
     </footer>
+    
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/script.js"></script>
+    <script src="js/chat.js"></script>
+    <script>
+        // Script to update the year dynamically
+        document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var video = document.getElementById('luminaVideo');
+            video.playbackRate = 0.80; // speed
+        });
+    </script>
     
     <script src="js/script.js"></script>
 </body>

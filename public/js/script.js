@@ -19,6 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
+/*
 // Function to fetch and display projects
 function loadProjects() {
     fetch('/api/projects')
@@ -41,3 +42,4 @@ function loadProjects() {
         })
         .catch(error => console.error('Error loading projects:', error));
 }
+*/
