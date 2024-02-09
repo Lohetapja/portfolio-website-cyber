@@ -1,3 +1,6 @@
+const witToken = process.env.WIT_AI_TOKEN;
+
+
 document.addEventListener('DOMContentLoaded', () => {
     // Load projects
     loadProjects();

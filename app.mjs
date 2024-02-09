@@ -1,13 +1,22 @@
-const express = require('express');
-const bodyParser = require('body-parser');
-const nodemailer = require('nodemailer');
-const path = require('path');
+import dotenv from 'dotenv';
+import express from 'express';
+import bodyParser from 'body-parser';
+import nodemailer from 'nodemailer';
+import path from 'path';
+import chatbotRoutes from './api/routes/chatbot.mjs';
+
+dotenv.config();
 
 const app = express();
 
+
+
 // Middlewares
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(process.cwd(), 'public')));
+
+app.use(express.json()); // Middleware to parse JSON bodies
+app.use('/chatbot', chatbotRoutes); // Use the chatbot routes
 
 // Contact form endpoint
 app.post('/contact', async (req, res) => {
@@ -40,6 +49,10 @@ app.post('/contact', async (req, res) => {
         console.error('Failed to send email', error);
         res.status(500).send('Failed to send email');
     }
+});
+
+app.post('/message', async (req, res) => {
+  // Implementation from the previous example
 });
 
 // Projects API endpoint (example)
