@@ -4,13 +4,14 @@ import bodyParser from 'body-parser';
 import nodemailer from 'nodemailer';
 import path from 'path';
 import chatbotRoutes from './api/routes/chatbot.mjs';
+import cors from 'cors';
 
 dotenv.config();
 
 const app = express();
 
 
-
+app.use(cors()); // This will enable CORS for all routes
 // Middlewares
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(path.join(process.cwd(), 'public')));
