@@ -334,7 +334,7 @@ body {
     margin-top: 20px;
 }
 
-/* Existing CSS */
+/* Existing CSS for video */
 .video-container video {
     max-width: 100%;
     height: auto;
@@ -343,8 +343,8 @@ body {
 /* Media query for screens that are 768px wide or less */
 @media (max-width: 768px) {
     .video-container video {
-        max-width: 60%; /* 40% smaller than full width */
-        height: auto; /* maintain aspect ratio */
-        margin: 0 auto; /* center the video if desired */
+        max-width: 60%; /* This will make the video 40% smaller than full width */
+        height: auto; /* Maintain aspect ratio */
+        margin: 0 auto; /* Center the video if desired */
     }
 }
