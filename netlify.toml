@@ -1,3 +1,7 @@
+# netlify.toml
+[build]
+  functions = "path_to_your_functions_directory"
+
 [[redirects]]
   from = "/api/*"
   to = "https://external-api.com/:splat"
