@@ -4,7 +4,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const userInput = document.getElementById('user-input');
     const chatMessages = document.getElementById('chat-messages');
 
-    sendButton.addEventListener('click', () => {
+    // Function to send a message
+    function sendMessage() {
         const message = userInput.value.trim();
         if (message) {
             fetch('/chatbot', {
@@ -24,6 +25,15 @@ document.addEventListener('DOMContentLoaded', () => {
             })
             .catch(error => console.error('Error:', error));
         }
+    }
+
+    // Event listener for the send button click
+    sendButton.addEventListener('click', sendMessage);
+
+    // Event listener for the enter key press
+    userInput.addEventListener('keypress', (event) => {
+        if (event.key === 'Enter') {
+            sendMessage();
+        }
     });
 });
-

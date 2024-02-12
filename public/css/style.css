@@ -334,3 +334,17 @@ body {
     margin-top: 20px;
 }
 
+/* Existing CSS */
+.video-container video {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Media query for screens that are 768px wide or less */
+@media (max-width: 768px) {
+    .video-container video {
+        max-width: 60%; /* 40% smaller than full width */
+        height: auto; /* maintain aspect ratio */
+        margin: 0 auto; /* center the video if desired */
+    }
+}
