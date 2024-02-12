@@ -355,12 +355,15 @@ body {
     color: #fff; /* White text color */
     padding: 20px;
     border-radius: 10px;
+    max-width: 600px; /* Max width for larger screens */
+    margin: auto; /* Center the chat box */
 }
 
 #chat-messages {
     max-height: 300px;
     overflow-y: auto;
     margin-bottom: 10px;
+    min-height: 100px; /* Minimum height to show the chat box nicely */
 }
 
 #user-input {
