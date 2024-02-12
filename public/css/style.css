@@ -348,3 +348,33 @@ body {
         margin: 0 auto; /* Center the video if desired */
     }
 }
+
+#chat-interface {
+    background: rgba(0, 0, 0, 0.7); /* Semi-transparent black background */
+    border: 2px solid #00ff00; /* Neon green border */
+    color: #fff; /* White text color */
+    padding: 20px;
+    border-radius: 10px;
+}
+
+#chat-messages {
+    max-height: 300px;
+    overflow-y: auto;
+    margin-bottom: 10px;
+}
+
+#user-input {
+    width: calc(100% - 90px); /* Input width taking into account the button width */
+    padding: 10px;
+    margin-right: 10px;
+    border: 1px solid #00ff00; /* Neon green border */
+    background: transparent;
+    color: #fff; /* White text color */
+}
+
+#send-btn {
+    background: #00ff00; /* Neon green background */
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+}
