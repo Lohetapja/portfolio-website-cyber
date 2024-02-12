@@ -355,8 +355,19 @@ body {
     color: #fff; /* White text color */
     padding: 20px;
     border-radius: 10px;
-    max-width: 600px; /* Max width for larger screens */
+    max-width: 500px; /* Max width for larger screens */
     margin: auto; /* Center the chat box */
+    
+}
+
+#user-input {
+    flex-grow: 1; /* Make input take up available space */
+    padding: 10px;
+    margin-right: 10px; /* Add space between input and button */
+    border: 1px solid #00ff00;
+    background: transparent;
+    color: #fff;
+    align-items: center; /* Align items vertically */
 }
 
 #chat-messages {
@@ -364,20 +375,20 @@ body {
     overflow-y: auto;
     margin-bottom: 10px;
     min-height: 100px; /* Minimum height to show the chat box nicely */
-}
-
-#user-input {
-    width: calc(100% - 90px); /* Input width taking into account the button width */
-    padding: 10px;
-    margin-right: 10px;
-    border: 1px solid #00ff00; /* Neon green border */
-    background: transparent;
-    color: #fff; /* White text color */
+    order: 1
+    
 }
 
 #send-btn {
-    background: #00ff00; /* Neon green background */
-    border: none;
     padding: 10px 20px;
+    background: #00ff00;
+    border: none;
     cursor: pointer;
+    order: 3; /* Position the send button after the input */
 }
+
+#chat-interface {
+    position: relative; /* Make sure this is relative if it's not already */
+    padding-bottom: 20px; /* Adjust this value based on the height of your input area */
+}
+
