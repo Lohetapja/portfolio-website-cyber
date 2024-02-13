@@ -1,7 +1,7 @@
 [build]
-functions = "functions"
+  functions = "functions"
 
 [[redirects]]
-from = "/api/chatbot/*"
-to = "/.netlify/functions/chatbot/:splat"
-status = 200
+  from = "/api/chatbot/*"
+  to = "/.netlify/functions/chatbot/:splat"
+  status = 200
