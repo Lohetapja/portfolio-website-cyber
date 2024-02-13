@@ -1,10 +1,8 @@
-// script.js
-
 // Function to send a message
 function sendMessage() {
     const message = userInput.value.trim();
     if (message) {
-        fetch('/.netlify/functions/chatbot', { // Update this URL to match your Netlify function endpoint
+        fetch('https://riivoportfolio.netlify.app/lumina', { // Update this URL to match your local Express endpoint
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -24,14 +22,12 @@ function sendMessage() {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
+    userInput = document.getElementById('user-input');
+    chatMessages = document.getElementById('chat-messages');
     const sendButton = document.getElementById('send-btn');
-    const userInput = document.getElementById('user-input');
-    const chatMessages = document.getElementById('chat-messages');
 
-    // Event listener for the send button click
+    // Event listeners
     sendButton.addEventListener('click', sendMessage);
-
-    // Event listener for the enter key press
     userInput.addEventListener('keypress', (event) => {
         if (event.key === 'Enter') {
             sendMessage();

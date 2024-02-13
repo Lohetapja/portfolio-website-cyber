@@ -1,9 +1,11 @@
-// functions/chatbot.js
-const fetch = require('node-fetch');
+// api/routes/chatbot.mjs
+import fetch from 'node-fetch';
 
-exports.handler = async (event, context) => {
+// We will make this an Express middleware function
+async function chatbotHandler(req, res, next) {
   const witToken = process.env.WIT_AI_TOKEN;
-  const message = JSON.parse(event.body).message;
+  // In Express, the body is already parsed, no need to parse it from a string
+  const message = req.body.message;
 
   try {
     const witResponse = await fetch(`https://api.wit.ai/message?v=20201005&q=${encodeURIComponent(message)}`, {
@@ -11,6 +13,7 @@ exports.handler = async (event, context) => {
     });
 
     if (!witResponse.ok) {
+      // Express can handle errors with next(), passing the error to the error handling middleware
       throw new Error(`HTTP error! status: ${witResponse.status}`);
     }
 
@@ -28,18 +31,14 @@ exports.handler = async (event, context) => {
     }
     // Add more conditions based on your intents
 
-    return {
-      statusCode: 200,
-      body: JSON.stringify({ reply }),
-      headers: {
-        'Content-Type': 'application/json'
-      }
-    };
+    // Respond with the JSON reply
+    res.status(200).json({ reply });
   } catch (error) {
+    // Log the error and pass it to the error-handling middleware
     console.error('Error:', error);
-    return {
-      statusCode: 500,
-      body: JSON.stringify({ error: 'Something went wrong while trying to talk to Wit.ai' }),
-    };
+    next(error); // Pass the error to the next middleware (error handling)
   }
-};
+}
+
+// We use named export for Express middleware
+export { chatbotHandler };
