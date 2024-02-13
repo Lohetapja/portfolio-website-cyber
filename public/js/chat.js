@@ -13,12 +13,12 @@ document.addEventListener('DOMContentLoaded', () => {
         // Only proceed if the message is not empty
         if (message) {
             // Send the message to the server using the Fetch API
-            fetch('/api/routes/chatbot', { // Assuming the function is named 'chatbot.js'
+            fetch('/api/chatbot', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify({ message: message }), // Ensure this variable is used within the same scope
+                body: JSON.stringify({ message: message }),
             })
             .then(response => {
                 // If the response is not ok, throw an error

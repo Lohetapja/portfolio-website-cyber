@@ -1,10 +1,7 @@
-# netlify.toml
 [build]
-  # Define the directory of your serverless functions
-  functions = "functions"
+functions = "functions"
 
 [[redirects]]
-  # Redirect from the Netlify site to the chatbot function
-  from = "/api/*"
-  to = "/.netlify/functions/chatbot/:splat"
-  status = 200
+from = "/api/chatbot/*"
+to = "/.netlify/functions/chatbot/:splat"
+status = 200
