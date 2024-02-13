@@ -1,4 +1,12 @@
 // chat.js - Client-side JavaScript for handling chat functionality
+fetch('/.netlify/functions/chatbot', {
+    method: 'POST',
+    headers: {
+        'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({ message: message }),
+})
+
 
 document.addEventListener('DOMContentLoaded', () => {
     // Grab the elements from the page
