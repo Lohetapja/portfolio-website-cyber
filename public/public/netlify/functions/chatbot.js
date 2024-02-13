@@ -1,35 +1,44 @@
-// netlify/functions/chatbot.js
+const fetch = require('node-fetch');
 
 exports.handler = async function(event, context) {
   // Only allow POST method
   if (event.httpMethod !== 'POST') {
-      return { 
-          statusCode: 405, 
-          body: 'Method Not Allowed',
-          headers: { 'Allow': 'POST' } 
-      };
+    return { 
+      statusCode: 405, 
+      body: 'Method Not Allowed',
+      headers: { 'Allow': 'POST' }
+    };
   }
 
   try {
-      // Parse the JSON body from the POST request
-      const data = JSON.parse(event.body);
-      const message = data.message;
-      
-      // Here you can implement your logic based on the message received
-      // For example, let's send a simple echo reply
-      const reply = `You said: ${message}`;
+    const { message } = JSON.parse(event.body);
 
-      // Return a successful response with the reply
-      return {
-          statusCode: 200,
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ reply })
-      };
+    // Replace 'YOUR_WIT_AI_SERVER_ACCESS_TOKEN' with your actual wit.ai server access token
+    const witResponse = await fetch(`https://api.wit.ai/message?v=20210105&q=${encodeURIComponent(message)}`, {
+      headers: {
+        'Authorization': `Bearer YOUR_WIT_AI_SERVER_ACCESS_TOKEN`
+      }
+    });
+
+    if (!witResponse.ok) {
+      throw new Error(`HTTP error! status: ${witResponse.status}`);
+    }
+
+    const witData = await witResponse.json();
+    // Process the wit.ai response as needed. Here, we just return the first entity value
+    const firstEntityValue = witData.entities && Object.values(witData.entities)[0][0].value;
+    const reply = firstEntityValue || "I'm not sure how to respond to that.";
+
+    return {
+      statusCode: 200,
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ reply })
+    };
   } catch (error) {
-      // Handle any errors that occurred during processing
-      return {
-          statusCode: 500,
-          body: JSON.stringify({ error: 'Internal Server Error' })
-      };
+    console.error('Error:', error);
+    return {
+      statusCode: 500,
+      body: JSON.stringify({ error: 'Internal Server Error' })
+    };
   }
 };
