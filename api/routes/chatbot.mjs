@@ -42,3 +42,32 @@ async function chatbotHandler(req, res, next) {
 
 // We use named export for Express middleware
 export { chatbotHandler };
+
+// netlify/functions/chatbot.js
+exports.handler = async function(event, context) {
+  // Check if the HTTP method is POST
+  if (event.httpMethod !== 'POST') {
+      return {
+          statusCode: 405,
+          body: 'Method Not Allowed'
+      };
+  }
+
+  try {
+      const requestBody = JSON.parse(event.body);
+      const message = requestBody.message;
+      
+      // Process the message as needed for your chatbot logic
+      const responseMessage = 'This is a response from the chatbot';
+
+      return {
+          statusCode: 200,
+          body: JSON.stringify({ reply: responseMessage })
+      };
+  } catch (error) {
+      return {
+          statusCode: 500,
+          body: JSON.stringify({ error: 'Internal Server Error' })
+      };
+  }
+};
