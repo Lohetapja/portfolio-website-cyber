@@ -1,18 +1,9 @@
 // chat.js - Client-side JavaScript for handling chat functionality
-fetch('/.netlify/functions/chatbot', {
-    method: 'POST',
-    headers: {
-        'Content-Type': 'application/json',
-    },
-    body: JSON.stringify({ message: message }),
-})
-
 
 document.addEventListener('DOMContentLoaded', () => {
-    // Grab the elements from the page
-    const sendButton = document.getElementById('send-btn'); // The button used to send messages
-    const userInput = document.getElementById('user-input'); // The input field for user messages
-    const chatMessages = document.getElementById('chat-messages'); // The container to display chat messages
+    const sendButton = document.getElementById('send-btn');
+    const userInput = document.getElementById('user-input');
+    const chatMessages = document.getElementById('chat-messages');
 
     // Function to send a message to the server
     function sendMessage() {
@@ -27,7 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify({ message: message }),
+                body: JSON.stringify({ message: message }), // Ensure this variable is used within the same scope
             })
             .then(response => {
                 // If the response is not ok, throw an error
