@@ -1,7 +1,10 @@
+# netlify.toml
+
 [build]
-  functions = "functions"
+  base = "public/"
+  publish = "public/"
+  functions = "public/netlify/functions" # Updated path
 
 [[redirects]]
   from = "/api/chatbot/*"
-  to = "/.netlify/functions/chatbot/:splat"
-  status = 200
+  to = "/.netlify/functions/chatbot/:splat" # No change needed here, it's a URL pattern not a file
