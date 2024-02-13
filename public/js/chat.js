@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
         // Only proceed if the message is not empty
         if (message) {
             // Send the message to the server using the Fetch API
-            fetch('/api/chatbot', { // Assuming the function is named 'chatbot.js'
+            fetch('/api/routes/chatbot', { // Assuming the function is named 'chatbot.js'
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
