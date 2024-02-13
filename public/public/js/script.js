@@ -7,7 +7,8 @@ let userInput, chatMessages, sendButton;
 function sendMessage() {
     const message = userInput.value.trim();
     if (message) {
-        fetch('//.netlify/functions/chatbot', { // Ensure this URL matches your server endpoint
+        // Make sure this URL is relative to the root domain
+        fetch('/.netlify/functions/chatbot', { // This should match your Netlify function endpoint
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
