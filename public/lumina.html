@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Section Title - Riivo Maadla's Portfolio</title>
+    <title>Lumina - Riivo Maadla's Portfolio</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
@@ -9,34 +9,24 @@
 <body>
     <header>
         <nav id="navbar">
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="projects.html">Projects</a></li>
-                <li><a href="lumina.html">Lumina</a></li>
-                <li><a href="open_source.html">Open Source</a></li>
-            </ul>
+            <!-- Navigation links -->
         </nav>
     </header>
     
     <main style="background: url('/images/Banner_Image.png') no-repeat center center fixed; background-size: cover;">
-        <section class="section-content-wrapper">
-            <h1>Lumina</h1>
-            <p>Placeholder content for this section...</p>
-            <!-- More content goes here -->
-        </section>
+        <!-- Section content -->
+        
         <section id="lumina" class="section">
+            <!-- Lumina video and chat interface -->
             <video id="luminaVideo" autoplay loop muted playsinline>
                 <source src="images/Lumina.mp4" type="video/mp4">
                 Your browser does not support the video tag.
-                </video>
-                <h2>Lumina</h2>
-                <!-- Chat interface here -->
-                <div id="chat-interface">
+            </video>
+            <h2>Lumina Chatbot</h2>
+            <div id="chat-interface">
                 <div id="chat-messages"></div>
                 <input type="text" id="user-input" placeholder="Type your message...">
                 <button id="send-btn">Send</button>
-                
             </div>
         </section>
     </main>
@@ -45,20 +35,14 @@
         <p>&copy; <span id="year"></span> Riivo Maadla</p>
     </footer>
     
-    <link rel="stylesheet" href="css/style.css">
-    <script src="js/script.js"></script>
+    <!-- JavaScript files -->
     <script src="js/chat.js"></script>
     <script>
-        // Script to update the year dynamically
-        document.getElementById('year').textContent = new Date().getFullYear();
-    </script>
-    <script>
+        // Playback rate control for Lumina video
         document.addEventListener('DOMContentLoaded', function() {
             var video = document.getElementById('luminaVideo');
-            video.playbackRate = 0.80; // speed
+            video.playbackRate = 0.80; // Slow down video playback
         });
     </script>
-    
-    <script src="js/script.js"></script>
 </body>
 </html>
