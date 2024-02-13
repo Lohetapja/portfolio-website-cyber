@@ -3,6 +3,6 @@
   functions = "public/netlify/functions"
 
 [[redirects]]
-  from = "/api/chatbot/*"
+  from = "/api/routes/chatbot/*"
   to = "/.netlify/functions/chatbot/:splat"
   status = 200
