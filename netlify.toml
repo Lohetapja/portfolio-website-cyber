@@ -1,9 +1,9 @@
 [build]
-  base = "public/" # Set this only if your project files are inside a `public` directory
-  publish = "public/" # Netlify will publish files from here
-  functions = "functions/" # Adjust if your functions are in a different directory
+  base = "public/"
+  publish = "public/"
+  functions = "public/netlify/functions"
 
 [[redirects]]
   from = "/api/chatbot/*"
-  to = "/.netlify/functions/chatbot/:splat" # No change needed here, it's a URL pattern
+  to = "/.netlify/functions/chatbot/:splat"
   status = 200
