@@ -1,6 +1,6 @@
-const fetch = require('node-fetch');
+import fetch from 'node-fetch'; // Use import instead of require
 
-exports.handler = async function(event, context) {
+export async function handler(event, context) {
   // Only allow POST method
   if (event.httpMethod !== 'POST') {
     return { 
