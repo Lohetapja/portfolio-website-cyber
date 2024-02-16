@@ -3,7 +3,7 @@ import express from 'express';
 import bodyParser from 'body-parser';
 import nodemailer from 'nodemailer';
 import path from 'path';
-import { chatbotHandler } from './api/routes/chatbot.mjs'; // Corrected import statement
+import { chatbotHandler } from './api/routes/chatbot.js'; // Corrected import statement
 import cors from 'cors';
 
 dotenv.config();

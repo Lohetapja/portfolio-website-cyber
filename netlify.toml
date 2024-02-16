@@ -1,8 +1,18 @@
 [build]
   publish = "public/"
-  functions = "public/netlify/functions"
+  functions = "netlify/functions" # This is the typical path for Netlify functions
 
 [[redirects]]
-  from = "/api/routes/chatbot/*"
-  to = "/.netlify/functions/chatbot/:splat"
+  from = "/api/routes/chatbot"
+  to = "/.netlify/functions/chatbot"
+  status = 200
+
+[[redirects]]
+  from = "/contact"
+  to = "/.netlify/functions/contact"
+  status = 200
+
+[[redirects]]
+  from = "/api/projects"
+  to = "/.netlify/functions/projects"
   status = 200
