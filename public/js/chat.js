@@ -1,37 +1,37 @@
 // chat.js - Client-side JavaScript for handling chat functionality
 
+// Ensure DOM is loaded
 document.addEventListener('DOMContentLoaded', () => {
+    // Get the necessary DOM elements
     const sendButton = document.getElementById('send-btn');
     const userInput = document.getElementById('user-input');
     const chatMessages = document.getElementById('chat-messages');
   
     // Function to send a message to the server
     function sendMessage() {
-      const message = userInput.value.trim(); // Get the user's message and remove any leading/trailing whitespace
+      const message = userInput.value.trim(); // Get the user's message
   
-      if (message) { // Only proceed if the message is not empty
-        fetch('/.netlify/functions/chatbot', { // Send the message to the Netlify function
+      if (message) {
+        // Send the message to the Netlify function
+        fetch('/.netlify/functions/chatbot', {
           method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({ message: message }),
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ message })
         })
         .then(response => {
-          if (!response.ok) { // If the response is not ok, throw an error
-            throw new Error(`HTTP error! status: ${response.status}`);
-          }
-          return response.json(); // Parse the response as JSON
+          if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+          return response.json();
         })
         .then(data => {
-          const messageElement = document.createElement('div'); // Create a new div element to hold the server's reply
-          messageElement.textContent = data.reply; // Set the text of the div to the reply
-          chatMessages.appendChild(messageElement); // Append the message to the chat messages container
-          chatMessages.scrollTop = chatMessages.scrollHeight; // Scroll to the bottom
-          userInput.value = ''; // Clear the user input field
+          // Display the server's response
+          const messageElement = document.createElement('div');
+          messageElement.textContent = data.reply;
+          chatMessages.appendChild(messageElement);
+          chatMessages.scrollTop = chatMessages.scrollHeight;
+          userInput.value = ''; // Clear the input field
         })
         .catch(error => {
-          console.error('Error:', error); // Log any errors to the console
+          console.error('Error:', error);
           const messageElement = document.createElement('div');
           messageElement.textContent = `Error: ${error.message}`;
           chatMessages.appendChild(messageElement);
@@ -40,10 +40,10 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     }
   
-    sendButton.addEventListener('click', sendMessage); // Add event listener for the send button click
-  
-    userInput.addEventListener('keypress', (event) => { // Add event listener for the user input keypress events
-      if (event.key === 'Enter') { // If the Enter key is pressed
+    // Event listeners for send button and enter key press
+    sendButton.addEventListener('click', sendMessage);
+    userInput.addEventListener('keypress', event => {
+      if (event.key === 'Enter') {
         event.preventDefault();
         sendMessage();
       }

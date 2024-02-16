@@ -1,10 +1,8 @@
 {
-  "type": "module",
   "name": "portfolio-website-cyber",
   "version": "1.0.0",
-  "main": "app.mjs",
   "scripts": {
-    "start": "node app.mjs",
+    "start": "serve public", 
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
@@ -14,7 +12,9 @@
     "node-fetch": "^3.3.2",
     "nodemailer": "^6.9.9"
   },
-  "author": "",
+  "devDependencies": {
+    "serve": "^13.0.2" 
+  },
   "license": "ISC",
   "description": ""
 }
