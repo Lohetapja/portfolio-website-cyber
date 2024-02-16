@@ -1,6 +1,6 @@
 [build]
   publish = "public/"
-  functions = "netlify/functions" # This is the typical path for Netlify functions
+  functions = "netlify/functions"
 
 [[redirects]]
   from = "/api/routes/chatbot"
