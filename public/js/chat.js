@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
   
       if (message) {
         // Send the message to the Netlify function
-        fetch('/.netlify/functions/chatbot', {
+        fetch('/lumina', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ message })
